@@ -1,0 +1,31 @@
+return {
+-- 	{
+--     "mason-org/mason.nvim",
+--      opts = {
+--         ui = {
+--             icons = {
+--                 package_installed = "✓",
+--                 package_pending = "➜",
+--                 package_uninstalled = "✗"
+--             }
+--         }
+--     }
+-- },
+	{
+		"neovim/nvim-lspconfig",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for LSP-based completion
+      "creativenull/efmls-configs-nvim", -- Preconfigured EFM Language Server setups
+    },
+		config = function()
+      require("utils.diagnostics").setup()
+      require("servers")
+    end,
+	},
+}
+	-- {
+	--    "TheLeoP/powershell.nvim",
+	--    ---@type powershell.user_config
+	--    opts = {
+	--      bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services"
+	--    }
