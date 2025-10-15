@@ -4,8 +4,9 @@ require("config.terminal")
 require("config.options")
 require("config.keymaps")
 require("config.autocommands")
-require("config.lsp")
 require("config.lazy")
+-- require("lsp.init")
+-- require("servers.init")
 -- require("lsp_servers.init")
 
 

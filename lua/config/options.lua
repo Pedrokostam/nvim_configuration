@@ -22,9 +22,9 @@ vim.opt.autoread = true                            -- Auto reload files changed 
 vim.opt.autowrite = false                          -- Don't auto save
 
 -- Tabbing / Indentation
-vim.opt.tabstop = 2 -- Tab width
-vim.opt.shiftwidth = 2 -- Indent width
-vim.opt.softtabstop = 2 -- Soft tab stop
+vim.opt.tabstop = 3 -- Tab width
+vim.opt.shiftwidth = 3 -- Indent width
+vim.opt.softtabstop = 3 -- Soft tab stop
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.smartindent = true -- Smart auto-indenting
 vim.opt.autoindent = true -- Copy indent from current line

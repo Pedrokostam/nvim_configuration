@@ -1,10 +1,5 @@
 return {
 	{
-		"folke/tokyonight.nvim",
-		lazy = true,
-		opts = { style = "moon" },
-	},
-	{
 		'nvim-lualine/lualine.nvim',
 		lazy = false,
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -65,7 +60,6 @@ return {
 			}
 		end,
 	},
-	{ "folke/todo-comments.nvim", opts = {} },
 
 
 }
