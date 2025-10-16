@@ -1,6 +1,6 @@
 -- File Explorer
-vim.keymap.set("n", "<leader>m", "<Cmd>NvimTreeFocus<CR>", { desc = "Focus on File Explorer" })
-vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+-- vim.keymap.set("n", "<leader>m", "<Cmd>NvimTreeFocus<CR>", { desc = "Focus on File Explorer" })
+-- vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
 
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
@@ -41,3 +41,5 @@ vim.keymap.set('v','<A-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = t
 vim.keymap.set('n', '<A-Up>', ':m .-2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Down>', ':m .+1<CR>', { noremap = true, silent = true })
 
+vim.keymap.set("i", "<C-z>","<C-X><C-O>",{desc = "Get completion",noremap=true,silent=true})
+vim.keymap.set({"n","i","v"},"<F12>",function() vim.lsp.buf.definition() end,{noremap = true, silent=true})

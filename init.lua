@@ -9,5 +9,3 @@ require("core.lazy") -- includes plugins
 require("core.lsp")
 -- Color scheme
 vim.cmd "colorscheme one_monokai"
-
-
