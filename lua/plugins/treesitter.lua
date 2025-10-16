@@ -1,5 +1,6 @@
+-- Syntax parsing and colorizing
+-- https://github.com/nvim-treesitter/nvim-treesitter
 return {
-	{
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
 		lazy = false,
@@ -160,45 +161,4 @@ return {
     },
     ---@module "nvim-treesitter-textobjects"
     opts = { multiwindow = true },
-  },
-}
-
-
-
-		-- auto_install = true,
-		-- indent = { enable = true },
-		-- highlight = { enable = true },
-		-- folds = { enable = true },
-		-- A list of parser names, or "all" (the listed parsers MUST always be installed)
-
-		-- Install parsers synchronously (only applied to `ensure_installed`)
-		-- sync_install = false,
-
-		-- Automatically install missing parsers when entering buffer
-		-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-
-		-- List of parsers to ignore installing (or "all")
-		-- ignore_install = { "javascript" },
-
-		---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-		-- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-		-- incremental_selection = {
-		-- 	enable = true,
-		-- 	keymaps = {
-		-- 		init_selection = "<CR>",
-		-- 		node_incremental = "<CR>",
-		-- 		scope_incremental = "<TAB>",
-		-- 		node_decremental = "<S-TAB>",
-		-- 	}
-		-- }
-	
-	-- -- On Windows, use `gcc` if `cl` is not available, and `gcc` is.
-	-- if
-	-- 	not vim.env.CC
-	-- 	and vim.fn.has("win32") == 1
-	-- 	and vim.fn.executable("cl") == 0
-	-- 	and vim.fn.executable("gcc") == 1
-	-- then
-	-- 	vim.env.CC = "gcc"
-	-- end
+  }

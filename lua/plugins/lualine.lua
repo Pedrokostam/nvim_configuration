@@ -1,3 +1,5 @@
+-- Status line
+-- https://github.com/folke/lazydev.nvim
 return {
 	{
 		'nvim-lualine/lualine.nvim',
