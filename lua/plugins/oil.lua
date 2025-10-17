@@ -9,10 +9,21 @@ return {
          "icon",
          "size",
       },
+      skip_confirm_for_simple_edits = true,
       win_options = {
          signcolumn = "auto",
       },
+      lsp_file_methods = {
+         -- Enable or disable LSP file operations
+         enabled = true,
+         -- Time to wait for LSP file operations to complete before skipping
+         timeout_ms = 2500,
+         -- Set to true to autosave buffers that are updated with LSP willRenameFiles
+         -- Set to "unmodified" to only save unmodified buffers
+         autosave_changes = false,
+      },
       delete_to_trash = true,
+      view_options = { case_insensitive = true },
       keymaps = {
          ["<BS>"] = { "actions.parent", mode = "n" },
       },

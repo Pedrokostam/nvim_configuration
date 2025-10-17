@@ -12,11 +12,11 @@ if isWin then
    else
       shell = "powershell"
    end
-   vim.opt.shell = shell
-   vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
-   vim.opt.shellquote = ''
-   vim.opt.shellxquote = ''
-   vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-   vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-   vim.opt.shellslash = false
+   vim.o.shell=shell
+   vim.o.shellcmdflag =
+   "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$PSStyle.OutputRendering = 'PlainText';"
+   vim.o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+   vim.o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+   vim.o.shellquote = ""
+   vim.o.shellxquote = ""
 end

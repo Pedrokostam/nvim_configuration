@@ -8,4 +8,5 @@ require("config.autocommands")
 require("core.lazy") -- includes plugins
 require("core.lsp")
 -- Color scheme
-vim.cmd "colorscheme one_monokai"
+vim.cmd "colorscheme vague"
+

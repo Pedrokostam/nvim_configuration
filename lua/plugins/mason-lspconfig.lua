@@ -2,6 +2,7 @@
 -- https://github.com/mason-org/mason-lspconfig.nvim
 return {
    "mason-org/mason-lspconfig.nvim",
+   lazy = false,
    opts = {
       automatic_enable = false,
       ensure_installed = {

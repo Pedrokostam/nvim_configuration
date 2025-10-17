@@ -29,17 +29,32 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
-vim.keymap.set("v","<A-k>",':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
-vim.keymap.set('v','<A-j>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
+vim.keymap.set("v", "<A-k>", ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-j>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<A-k>', ':m .-2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-j>', ':m .+1<CR>', { noremap = true, silent = true })
 
-vim.keymap.set("v","<A-Up>",':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
-vim.keymap.set('v','<A-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
+vim.keymap.set("v", "<A-Up>", ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<A-Up>', ':m .-2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Down>', ':m .+1<CR>', { noremap = true, silent = true })
 
-vim.keymap.set("i", "<C-z>","<C-X><C-O>",{desc = "Get completion",noremap=true,silent=true})
-vim.keymap.set({"n","i","v"},"<F12>",function() vim.lsp.buf.definition() end,{noremap = true, silent=true})
+vim.keymap.set("i", "<C-z>", "<C-X><C-O>", { desc = "Get completion", noremap = true, silent = true })
+vim.keymap.set({ "n", "i", "v" }, "<F12>", function() vim.lsp.buf.definition() end, { noremap = true, silent = true })
+
+
+-- LSP
+
+vim.keymap.set({ 'n' }, "gl", vim.diagnostic.open_float, { desc = "LSP: Open Diagnostic Float" })
+vim.keymap.set({ 'n' }, "K", vim.lsp.buf.hover, { desc = "LSP: Hover Documentation" })
+vim.keymap.set({ 'n' }, "gs", vim.lsp.buf.signature_help, { desc = "LSP: Signature Documentation" })
+vim.keymap.set({ 'n' }, "gD", vim.lsp.buf.declaration, { desc = "LSP: Goto Declaration" })
+vim.keymap.set({ 'n' }, "<leader>la", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
+vim.keymap.set({ 'n' }, "<leader>lr", vim.lsp.buf.rename, { desc = "LSP: Rename all references" })
+vim.keymap.set({ 'n' }, "<leader>lf", vim.lsp.buf.format, { desc = "LSP: Format" })
+vim.keymap.set({ 'n' }, "<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>",
+   { desc = "LSP: Goto Definition in Vertical Split" })
+vim.keymap.set({ 'n' }, "<leader>h", "<cmd>hsplit | lua vim.lsp.buf.definition()<cr>",
+   { desc = "LSP: Goto Definition in Horizontal Split" })
