@@ -43,7 +43,10 @@ vim.keymap.set('n', '<A-Down>', ':m .+1<CR>', { noremap = true, silent = true })
 
 vim.keymap.set("i", "<C-z>", "<C-X><C-O>", { desc = "Get completion", noremap = true, silent = true })
 vim.keymap.set({ "n", "i", "v" }, "<F12>", function() vim.lsp.buf.definition() end, { noremap = true, silent = true })
-
+vim.keymap.set({ "n", "i", "v" }, "<C-F12>", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>",
+   { desc = "LSP: Goto Definition in Vertical Split" })
+vim.keymap.set({ "n", "i", "v" }, "<S-F12>", "<cmd>split | lua vim.lsp.buf.definition()<cr>",
+   { desc = "LSP: Goto Definition in Horizontal Split" })
 
 -- LSP
 
@@ -56,5 +59,5 @@ vim.keymap.set({ 'n' }, "<leader>lr", vim.lsp.buf.rename, { desc = "LSP: Rename 
 vim.keymap.set({ 'n' }, "<leader>lf", vim.lsp.buf.format, { desc = "LSP: Format" })
 vim.keymap.set({ 'n' }, "<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>",
    { desc = "LSP: Goto Definition in Vertical Split" })
-vim.keymap.set({ 'n' }, "<leader>h", "<cmd>hsplit | lua vim.lsp.buf.definition()<cr>",
+vim.keymap.set({ 'n' }, "<leader>h", "<cmd>split | lua vim.lsp.buf.definition()<cr>",
    { desc = "LSP: Goto Definition in Horizontal Split" })

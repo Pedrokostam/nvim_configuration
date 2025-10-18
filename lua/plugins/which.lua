@@ -9,12 +9,19 @@ return {
     -- refer to the configuration section below
   },
   keys = {
+    -- {
+    --   "<leader>?",
+    --   function()
+    --     require("which-key").show({ global = false })
+    --   end,
+    --   desc = "Buffer Local Keymaps (which-key)",
+    -- },
     {
       "<leader>?",
       function()
-        require("which-key").show({ global = false })
+        require("which-key").show({ global = true })
       end,
       desc = "Buffer Local Keymaps (which-key)",
-    },
+    }
   },
 }
