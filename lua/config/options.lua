@@ -2,7 +2,7 @@
 vim.opt.number = true              -- Line numbers
 vim.opt.relativenumber = true      -- Relative line numbers
 vim.opt.cursorline = true          -- Highlight current line
-vim.opt.scrolloff = 10             -- Keep 10 lines above/below cursor
+vim.opt.scrolloff = 16             -- Keep 10 lines above/below cursor
 vim.opt.sidescrolloff = 8          -- Keep 8 columns left/right of cursor
 vim.opt.wrap = false               -- Don't wrap lines
 vim.opt.cmdheight = 1              -- Command line height
@@ -19,6 +19,7 @@ vim.opt.timeoutlen = 500                          -- Key timeout duration
 vim.opt.ttimeoutlen = 0                           -- Key code timeout
 vim.opt.autoread = true                           -- Auto reload files changed outside vim
 vim.opt.autowrite = false                         -- Don't auto save
+vim.opt.fileformats = 'unix,dos'                  -- Set the formats Vim will check when opening a file (default behavior)
 
 -- Tabbing / Indentation
 vim.opt.tabstop = 3                -- Tab width
@@ -37,22 +38,22 @@ vim.opt.hlsearch = false  -- Don't highlight search results
 vim.opt.incsearch = true  -- Show matches as you type
 
 -- Visual Settings
-vim.opt.termguicolors = true                -- Enable 24-bit colors
-vim.opt.signcolumn = "yes"                  -- Always show sign column
-vim.opt.colorcolumn = "130"                 -- Show column at 100 characters
-vim.opt.showmatch = true                    -- Highlight matching brackets
-vim.opt.matchtime = 2                       -- How long to show matching bracket
-vim.opt.completeopt= "menuone,noinsert,fuzzy,popup" -- Completion options
-vim.opt.showmode = false                    -- Don't show mode in command line
-vim.opt.pumheight = 10                      -- Popup menu height
-vim.opt.pumblend = 10                       -- Popup menu transparency
-vim.opt.winblend = 0                        -- Floating window transparency
-vim.opt.conceallevel = 0                    -- Don't hide markup
-vim.opt.concealcursor = ""                  -- Show markup even on cursor line
-vim.opt.lazyredraw = false                  -- redraw while executing macros (butter UX)
-vim.opt.redrawtime = 10000                  -- Timeout for syntax highlighting redraw
-vim.opt.maxmempattern = 20000               -- Max memory for pattern matching
-vim.opt.synmaxcol = 300                     -- Syntax highlighting column limit
+vim.opt.termguicolors = true                        -- Enable 24-bit colors
+vim.opt.signcolumn = "yes"                          -- Always show sign column
+vim.opt.colorcolumn = "130"                         -- Show column at 100 characters
+vim.opt.showmatch = true                            -- Highlight matching brackets
+vim.opt.matchtime = 2                               -- How long to show matching bracket
+vim.opt.completeopt = "menuone,noinsert,fuzzy,popup" -- Completion options
+vim.opt.showmode = false                            -- Don't show mode in command line
+vim.opt.pumheight = 10                              -- Popup menu height
+vim.opt.pumblend = 10                               -- Popup menu transparency
+vim.opt.winblend = 0                                -- Floating window transparency
+vim.opt.conceallevel = 0                            -- Don't hide markup
+vim.opt.concealcursor = ""                          -- Show markup even on cursor line
+vim.opt.lazyredraw = false                          -- redraw while executing macros (butter UX)
+vim.opt.redrawtime = 10000                          -- Timeout for syntax highlighting redraw
+vim.opt.maxmempattern = 20000                       -- Max memory for pattern matching
+vim.opt.synmaxcol = 300                             -- Syntax highlighting column limit
 vim.opt.winborder = 'rounded'
 
 -- Behavior Settings
@@ -105,8 +106,8 @@ vim.opt.splitright = true -- Vertical splits open to the right
 
 -- Diagnostics
 vim.diagnostic.config({
-   virtual_lines = false,
-   virtual_text = true,
+   virtual_lines = true,
+   virtual_text = false,
    underline = true,
    severity_sort = true,
    float = {

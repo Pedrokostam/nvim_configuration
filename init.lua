@@ -8,5 +8,5 @@ require("config.autocommands")
 require("core.lazy") -- includes plugins
 require("core.lsp")
 -- Color scheme
-vim.cmd "colorscheme vague"
+vim.cmd "colorscheme jellybeans"
 

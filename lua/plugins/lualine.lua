@@ -9,8 +9,8 @@ return {
          require('lualine').setup {
             options = {
                icons_enabled = true,
-               theme = 'palenight',
-               component_separators = { left='|',right='|' },
+               theme = 'jellybeans',
+               component_separators = { left = '|', right = '|' },
                section_separators = { '' },
                disabled_filetypes = {
                   statusline = {},
@@ -42,7 +42,14 @@ return {
             sections = {
                lualine_a = { 'mode' },
                lualine_b = { 'branch', 'diff', 'diagnostics' },
-               lualine_c = { 'filename' },
+               lualine_c = {
+                  'filename',
+                  {
+                     require("lazy.status").updates,
+                     cond = require("lazy.status").has_updates,
+                     color = { fg = "#ff9e64" },
+                  }
+               },
                lualine_x = { 'searchcount', 'selectioncount' },
                lualine_y = { { 'encoding', show_bomb = true }, 'fileformat', 'filetype' },
                lualine_z = { 'progress', 'location' }
