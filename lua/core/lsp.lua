@@ -59,5 +59,6 @@ vim.lsp.enable({
    "clangd", "cmake",
    "csharp_ls",
    "jsonls",
+   "ruff",
    -- "rust_analyzer",
 })
