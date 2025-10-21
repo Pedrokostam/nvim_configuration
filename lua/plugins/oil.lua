@@ -26,6 +26,11 @@ return {
       view_options = { case_insensitive = true },
       keymaps = {
          ["<BS>"] = { "actions.parent", mode = "n" },
+         ["<leader>ot"] = { "actions.open_terminal", mode = "n" },
+         ["ga"] = { "actions.yank_entry", mode = "n", opts = { modify = ':p' }, desc = "Yank absolute path" },
+         ["gr"] = { "actions.yank_entry", mode = "n", opts = { modify = ':.' }, desc = "Yank relative path" },
+         ["gn"] = { "actions.yank_entry", mode = "n", opts = { modify = ':t' }, desc = "Yank name with extension" },
+         ["<leader>e"] = { "actions.close", mode = "n" },
       },
    },
    -- Optional dependencies
@@ -34,6 +39,6 @@ return {
    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
    lazy = false,
    keys = {
-      { "<leader>e", "<cmd>Oil<cr>", desc = "Open Oil" },
+      { "<leader>e", "<cmd>Oil<cr>", desc = "Open Oil (window)" },
    }
 }
