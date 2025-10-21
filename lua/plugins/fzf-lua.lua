@@ -2,7 +2,7 @@ return {
    "ibhagwan/fzf-lua",
    -- optional for icon support
    dependencies = { "nvim-tree/nvim-web-devicons" },
-   lazy=false,
+   lazy = false,
    -- or if using mini.icons/mini.nvim
    -- dependencies = { "nvim-mini/mini.icons" },
    opts = {
@@ -40,6 +40,7 @@ return {
       -- { "<leader>fh", "<cmd>FzfLua help_tags<cr>",                 desc = "Help Pages" },
       { "<leader>fD",  "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace Diagnostics" },
       { "<leader>fd",  "<cmd>FzfLua diagnostics_document<cr>",  desc = "Document Diagnostics" },
+      { "<leader>ft",  "<cmd>FzfLua tabs<cr>",                  desc = "Tabs" },
       { "<leader>fj",  "<cmd>FzfLua jumplist<cr>",              desc = "Jumplist" },
       { "<leader>fl",  "<cmd>FzfLua loclist<cr>",               desc = "Location List" },
       { "<leader>fm",  "<cmd>FzfLua marks<cr>",                 desc = "Jump to Mark" },

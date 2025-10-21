@@ -24,7 +24,7 @@ return {
                   statusline = 1000,
                   tabline = 1000,
                   winbar = 1000,
-                  refresh_time = 16, -- ~60f ps
+                  refresh_time = 50,
                   events = {
                      'WinEnter',
                      'BufEnter',
@@ -41,7 +41,7 @@ return {
             },
             sections = {
                lualine_a = { 'mode' },
-               lualine_b = { 'branch', 'diff', 'diagnostics' },
+               lualine_b = { 'branch',  },
                lualine_c = {
                   'filename',
                   {
