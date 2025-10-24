@@ -22,7 +22,7 @@ return {
          -- Set to "unmodified" to only save unmodified buffers
          autosave_changes = false,
       },
-      delete_to_trash = true,
+      delete_to_trash = false,
       view_options = { case_insensitive = true },
       keymaps = {
          ["<BS>"] = { "actions.parent", mode = "n" },
@@ -31,6 +31,11 @@ return {
          ["gr"] = { "actions.yank_entry", mode = "n", opts = { modify = ':.' }, desc = "Yank relative path" },
          ["gn"] = { "actions.yank_entry", mode = "n", opts = { modify = ':t' }, desc = "Yank name with extension" },
          ["<leader>e"] = { "actions.close", mode = "n" },
+         ["<S-Down>"] = { "actions.preview_scroll_down", mode = "n" },
+         ["J"] = { "actions.preview_scroll_down", mode = "n" },
+         ["<S-Up>"] = { "actions.preview_scroll_up", mode = "n" },
+         ["K"] = { "actions.preview_scroll_up", mode = "n" },
+         ["<C-S>"] = { "oil.save", mode = {"n","i"} },
       },
    },
    -- Optional dependencies
@@ -40,5 +45,6 @@ return {
    lazy = false,
    keys = {
       { "<leader>e", "<cmd>Oil<cr>", desc = "Open Oil (window)" },
+      { "<leader>E", "<cmd>Oil --float <cr>", desc = "Open Oil (float)" },
    }
 }

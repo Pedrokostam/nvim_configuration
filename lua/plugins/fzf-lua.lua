@@ -38,8 +38,6 @@ return {
       { "<leader>fc",  "<cmd>FzfLua command_history<cr>",       desc = "Command History" },
       { "<leader>fC",  "<cmd>FzfLua commands<cr>",              desc = "Commands" },
       -- { "<leader>fh", "<cmd>FzfLua help_tags<cr>",                 desc = "Help Pages" },
-      { "<leader>fD",  "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace Diagnostics" },
-      { "<leader>fd",  "<cmd>FzfLua diagnostics_document<cr>",  desc = "Document Diagnostics" },
       { "<leader>ft",  "<cmd>FzfLua tabs<cr>",                  desc = "Tabs" },
       { "<leader>fj",  "<cmd>FzfLua jumplist<cr>",              desc = "Jumplist" },
       { "<leader>fl",  "<cmd>FzfLua loclist<cr>",               desc = "Location List" },
@@ -48,6 +46,13 @@ return {
       { "<leader>fq",  "<cmd>FzfLua quickfix<cr>",              desc = "Quickfix List" },
       { "<leader>fhh", "<cmd>FzfLua highlights<cr>",            desc = "Search Highlight Groups" },
       { "<leader>fhk", "<cmd>FzfLua keymaps<cr>",               desc = "Key Maps" },
-      { "<leader>fhm", "<cmd>FzfLua man_pages<cr>",             desc = "Man Pages" },
+      { "<leader>fdG",  "<cmd>FzfLua lsp_diagnostics_workspace<cr>", desc = "Workspace diagnostics" },
+      { "<leader>fdg",  "<cmd>FzfLua lsp_diagnostics_document<cr>",  desc = "Document diagnostics" },
+      { "<leader>fds", "<cmd>FzfLua lsp_document_symbols<cr>",             desc = "Document symbols" },
+      { "<leader>fdS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>",             desc = "Workspace symbols" },
+      { "<leader>fdr", "<cmd>FzfLua lsp_references<cr>",             desc = "References" },
+      { "<leader>fda", "<cmd>FzfLua lsp_code_actions<cr>",             desc = "Code actions" },
+      { "<leader>fdd", "<cmd>FzfLua lsp_definitions<cr>",             desc = "Definitions" },
+      { "<leader>fdD", "<cmd>FzfLua lsp_declarations<cr>",             desc = "Declarations" },
    }
 }
