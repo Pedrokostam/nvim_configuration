@@ -52,6 +52,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
          })
       end
 
+      if client:supports_method("textDocument/foldingRange") then
+         local win = vim.api.nvim_get_current_win()
+         vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+      end
       vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
       -- When LSP detaches: Clears the highlighting
       vim.api.nvim_create_autocmd('LspDetach', {
@@ -64,12 +68,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
    end,
 })
 vim.api.nvim_create_user_command("WriteAndSource", function()
-  if vim.bo.modified then
-    vim.cmd("update")
-    vim.cmd("source %")
-    print("File updated and sourced")
-  else
-    print("No changes to save")
-  end
+   if vim.bo.modified then
+      vim.cmd("update")
+      vim.cmd("source %")
+      print("File updated and sourced")
+   else
+      print("No changes to save")
+   end
 end, {})
 vim.cmd("cnoreabbrev wso WriteAndSource")
