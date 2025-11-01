@@ -1,7 +1,0 @@
--- https://github.com/nvzone/floaterm
-return {
-   "nvzone/floaterm",
-   dependencies = { "nvzone/volt" },
-   opts = {},
-   cmd = "FloatermToggle",
-}

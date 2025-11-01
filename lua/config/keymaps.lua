@@ -1,6 +1,11 @@
--- File Explorer
--- vim.keymap.set("n", "<leader>m", "<Cmd>NvimTreeFocus<CR>", { desc = "Focus on File Explorer" })
--- vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+-- require("config.globals")
+-- local cmdEscape
+-- if vim.g.os == "Wim" then
+--    cmdEscape = "<S-Esc>"
+-- else
+--    cmdEscape = "<C-Esc>"
+-- end
+-- vim.keymap.set({ "i", "v", "o", "c", "t" }, cmdEscape, "<Esc>:", { noremap = true, silent = true })
 
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
@@ -62,3 +67,17 @@ vim.keymap.set({ 'n' }, "<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()
    { desc = "LSP: Goto Definition in Vertical Split" })
 vim.keymap.set({ 'n' }, "<leader>h", "<cmd>split | lua vim.lsp.buf.definition()<cr>",
    { desc = "LSP: Goto Definition in Horizontal Split" })
+
+-- Display and formatting
+vim.keymap.set(
+   { "i", "n" },
+   "<F3>v",
+   function()
+      vim.wo.list = not vim.wo.list
+   end,
+   { desc = "Toggle invisble characters" }
+)
+vim.keymap.set({ "i", "n" }, "<F3>w", function() vim.wo.wrap = not vim.wo.wrap end, { desc = "Toggle wrapping" })
+vim.keymap.set({ "i", "n" }, "<F3>fd", function() vim.bo.fileformat = 'dos' end, { desc = "Set format to DOS (CRLF)" })
+vim.keymap.set({ "i", "n" }, "<F3>fu", function() vim.bo.fileformat = 'unix' end, { desc = "Set format to UNIX (LR)" })
+vim.keymap.set({ "i", "n" }, "<F3>fm", function() vim.bo.fileformat = 'mac' end, { desc = "Set format to MAC (CR)" })

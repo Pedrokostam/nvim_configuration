@@ -1,12 +1,6 @@
----@diagnostic disable: undefined-field
--- OS detection
-local mySysname = vim.loop.os_uname().sysname
-local isWin = mySysname:find 'Windows' and true or false
--- local isMac = mySysname == 'Darwin'
--- local isLinux = mySysname == 'Linux'
--- local isWsl = isLinux and vim.loop.os_uname().release:find 'Microsoft' and true or false
--- Set shell
-if isWin then
+require("config.globals")
+-- Set shell (vim.g.os comes from globals.lua)
+if vim.g.os == "Win" then
    local shell = nil
    if vim.fn.executable("pwsh") == 1 then
       shell = "pwsh"

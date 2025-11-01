@@ -59,6 +59,8 @@ vim.lsp.enable({
    "clangd", "cmake",
    "csharp_ls",
    "jsonls",
+   "pyright",
    "ruff",
+   "lemminx",
    -- "rust_analyzer",
 })

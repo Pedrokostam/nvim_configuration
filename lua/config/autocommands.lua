@@ -63,3 +63,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
    end,
 })
+vim.api.nvim_create_user_command("WriteAndSource", function()
+  if vim.bo.modified then
+    vim.cmd("update")
+    vim.cmd("source %")
+    print("File updated and sourced")
+  else
+    print("No changes to save")
+  end
+end, {})
+vim.cmd("cnoreabbrev wso WriteAndSource")

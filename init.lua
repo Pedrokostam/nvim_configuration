@@ -1,4 +1,5 @@
 -- Pre-lazy configuration
+require("config.filetypes")
 require("config.globals")
 require("config.terminal")
 require("config.options")
