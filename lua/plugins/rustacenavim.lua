@@ -6,8 +6,4 @@ return {
    dependencies = {
       "mfussenegger/nvim-dap"
    },
-   config = function()
-      local dap = require("dap")
-      dap.set_exception_breakpoints({ "all" })
-   end,
 }
