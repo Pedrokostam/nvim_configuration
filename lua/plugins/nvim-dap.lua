@@ -25,12 +25,12 @@ return {
          desc = "Step Over"
       },
       {
-         "<F11>",
+         "<F8>",
          function() require('dap').step_over() end,
          desc = "Step Into"
       },
       {
-         "<S-F11>",
+         "<S-F8>",
          function() require('dap').step_over() end,
          desc = "Step Out"
       },
