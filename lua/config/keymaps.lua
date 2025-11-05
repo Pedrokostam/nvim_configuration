@@ -68,6 +68,16 @@ vim.keymap.set({ 'n' }, "<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()
 vim.keymap.set({ 'n' }, "<leader>h", "<cmd>split | lua vim.lsp.buf.definition()<cr>",
    { desc = "LSP: Goto Definition in Horizontal Split" })
 
+local accept_func = function(key)
+   if vim.fn.pumvisible() == 1 then
+      return vim.api.nvim_replace_termcodes("<C-y>", true, true, true)
+   else
+      return key
+   end
+end
+vim.keymap.set("i", "<Tab>", function() return accept_func("\t") end, { expr = true })
+vim.keymap.set("i", "<Enter>", function() return accept_func("\r") end, { expr = true })
+
 -- Display and formatting
 vim.keymap.set(
    { "i", "n" },
