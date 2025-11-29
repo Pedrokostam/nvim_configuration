@@ -55,6 +55,7 @@
 -- vim.notify(files,vim.log.levels.WARN)
 vim.lsp.enable({
    "lua_ls",
+   "csharp_ls",
    "powershell_es",
    "clangd", "cmake",
    "csharp_ls",

@@ -25,17 +25,21 @@ return {
       delete_to_trash = false,
       view_options = { case_insensitive = true },
       keymaps = {
+         ["<C-h>"] = false,
+         ["<C-l>"] = false,
+         -- Map F5 to the refresh action
+         ["<F5>"] = "actions.refresh",
          ["<BS>"] = { "actions.parent", mode = "n" },
          ["<leader>ot"] = { "actions.open_terminal", mode = "n" },
-         ["ga"] = { "actions.yank_entry", mode = "n", opts = { modify = ':p' }, desc = "Yank absolute path" },
-         ["gr"] = { "actions.yank_entry", mode = "n", opts = { modify = ':.' }, desc = "Yank relative path" },
-         ["gn"] = { "actions.yank_entry", mode = "n", opts = { modify = ':t' }, desc = "Yank name with extension" },
+         ["gya"] = { "actions.yank_entry", mode = "n", opts = { modify = ':p' }, desc = "Yank absolute path" },
+         ["gyR"] = { "actions.yank_entry", mode = "n", opts = { modify = ':.' }, desc = "Yank relative path" },
+         ["gyn"] = { "actions.yank_entry", mode = "n", opts = { modify = ':t' }, desc = "Yank name with extension" },
          ["<leader>e"] = { "actions.close", mode = "n" },
          ["<S-Down>"] = { "actions.preview_scroll_down", mode = "n" },
          ["J"] = { "actions.preview_scroll_down", mode = "n" },
          ["<S-Up>"] = { "actions.preview_scroll_up", mode = "n" },
          ["K"] = { "actions.preview_scroll_up", mode = "n" },
-         ["<C-S>"] = { "oil.save", mode = {"n","i"} },
+         ["<C-S>"] = { "oil.save", mode = { "n", "i" } },
       },
    },
    -- Optional dependencies
@@ -44,7 +48,7 @@ return {
    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
    lazy = false,
    keys = {
-      { "<leader>e", "<cmd>Oil<cr>", desc = "Open Oil (window)" },
+      { "<leader>e", "<cmd>Oil<cr>",          desc = "Open Oil (window)" },
       { "<leader>E", "<cmd>Oil --float <cr>", desc = "Open Oil (float)" },
    }
 }
