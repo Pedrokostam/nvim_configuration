@@ -23,7 +23,10 @@ return {
          autosave_changes = false,
       },
       delete_to_trash = false,
-      view_options = { case_insensitive = true },
+      view_options = {
+         case_insensitive = true,
+         show_hidden = true,
+      },
       keymaps = {
          ["<C-h>"] = false,
          ["<C-l>"] = false,
