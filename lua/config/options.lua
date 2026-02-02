@@ -74,17 +74,17 @@ vim.opt.iskeyword:append("-")           -- Treat dash as part of a word
 vim.opt.path:append("**")               -- Search into subfolders with `gf`
 vim.opt.selection = "inclusive"         -- Use inclusive selection
 vim.opt.mouse = "a"                     -- Enable mouse support
-vim.g.clipboard = {
-   name = 'OSC 52',
-   copy = {
-      ['+'] = require('vim.ui.clipboard.osc52').copy '+',
-      ['*'] = require('vim.ui.clipboard.osc52').copy '*',
-   },
-   paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste '+',
-      ['*'] = require('vim.ui.clipboard.osc52').paste '*',
-   },
-}
+-- vim.g.clipboard = {
+--    name = 'OSC 52',
+--    copy = {
+--       ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+--       ['*'] = require('vim.ui.clipboard.osc52').copy '*',
+--    },
+--    paste = {
+--       ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+--       ['*'] = require('vim.ui.clipboard.osc52').paste '*',
+--    },
+-- }
 -- vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 vim.opt.modifiable = true               -- Allow editing buffers
 vim.opt.encoding = "UTF-8"              -- Use UTF-8 encoding
