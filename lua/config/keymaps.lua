@@ -7,6 +7,10 @@
 -- end
 -- vim.keymap.set({ "i", "v", "o", "c", "t" }, cmdEscape, "<Esc>:", { noremap = true, silent = true })
 
+-- Clipboard
+vim.keymap.set({ 'n', 'v' }, '<C-y>', '"+y')
+vim.keymap.set('n', '<C-p>', '"+p')
+
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
