@@ -47,11 +47,16 @@ vim.keymap.set('n', '<A-j>', ':m .+1<CR>', { noremap = true, silent = true })
 
 vim.keymap.set("v", "<A-Up>", ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
 vim.keymap.set('v', '<A-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
-
+vim.
 vim.keymap.set('n', '<A-Up>', ':m .-2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Down>', ':m .+1<CR>', { noremap = true, silent = true })
 
+vim.keymap.set("i", "<C-l>", "<C-X><C-O>", { desc = "Get completion", noremap = true, silent = true })
+-- Windows terminal does not like C-Space, so we have C-Z
 vim.keymap.set("i", "<C-z>", "<C-X><C-O>", { desc = "Get completion", noremap = true, silent = true })
+-- The preferred binding
+vim.keymap.set("i", "<C-Space>", "<C-X><C-O>", { desc = "Get completion", noremap = true, silent = true })
+
 vim.keymap.set({ "n", "i", "v" }, "<F12>", function() vim.lsp.buf.definition() end, { noremap = true, silent = true })
 vim.keymap.set({ "n", "i", "v" }, "<C-F12>", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>",
    { desc = "LSP: Goto Definition in Vertical Split" })
