@@ -47,7 +47,6 @@ vim.keymap.set('n', '<A-j>', ':m .+1<CR>', { noremap = true, silent = true })
 
 vim.keymap.set("v", "<A-Up>", ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
 vim.keymap.set('v', '<A-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
-vim.
 vim.keymap.set('n', '<A-Up>', ':m .-2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Down>', ':m .+1<CR>', { noremap = true, silent = true })
 
