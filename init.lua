@@ -1,6 +1,7 @@
 vim.loader.enable()
 -- Pre-lazy configuration
 require("config.filetypes")
+require("config.neovide")
 require("config.globals")
 require("config.terminal")
 require("config.options")
