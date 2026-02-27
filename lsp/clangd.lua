@@ -25,10 +25,12 @@ local function switch_source_header(bufnr, client)
       error(tostring(err))
     end
     if not result then
-      vim.notify('corresponding file cannot be determined')
+      vim.notify('Corresponding file cannot be determined', vim.log.levels.WARN)
       return
     end
-    vim.cmd.edit(vim.uri_to_fname(result))
+    local end_path = vim.uri_to_fname(result)
+    vim.cmd.edit(end_path)
+    vim.notify("Switched to " .. end_path, vim.log.levels.INFO, {title='LSP'})
   end, bufnr)
 end
 
@@ -63,7 +65,7 @@ end
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'clangd' },
+  cmd = { 'clangd', '--background-index', '--clang-tidy', '--header-insertion=never', '--completion-style=detailed' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
   root_markers = {
     '.clangd',
@@ -96,5 +98,7 @@ return {
     vim.api.nvim_buf_create_user_command(bufnr, 'LspClangdShowSymbolInfo', function()
       symbol_info(bufnr, client)
     end, { desc = 'Show symbol info' })
+
+    vim.keymap.set('n','<leader>o', '<Cmd>LspClangdSwitchSourceHeader<CR>', {noremap =true, silent =true, buffer = bufnr, desc = 'Switch between source/header'})
   end,
 }
