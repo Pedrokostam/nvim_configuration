@@ -18,5 +18,5 @@ end
 
 -- Keymap to toggle LSP
 -- Change '<leader>l' to your preferred keybinding
-vim.keymap.set('n', '<leader>lt', toggle_lsp, { noremap = true, silent = true, desc = "Toggle LSP for buffer" })
+vim.keymap.set('n', '<leader>ltt', toggle_lsp, { noremap = true, silent = true, desc = "Toggle LSP for buffer" })
 
