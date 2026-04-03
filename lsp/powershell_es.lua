@@ -40,8 +40,10 @@
 return {
    cmd = function(dispatchers)
       local temp_path = vim.fn.stdpath('data')
+      local config_path = vim.fn.stdpath('config')
       local bundle_path = temp_path .. '/mason/packages/powershell-editor-services' -- dirty fix
       local shell = vim.lsp.config.powershell_es.shell or 'pwsh'
+      local settings_path = config_path .. '/resources/PSScriptAnalyzerSettings.psd1'
       local command_fmt =
       [[& '%s/PowerShellEditorServices/Start-EditorServices.ps1' -BundledModulesPath '%s' -LogPath '%s/powershell_es.log' -SessionDetailsPath '%s/powershell_es.session.json' -FeatureFlags @() -AdditionalModules @() -HostName nvim -HostProfileId 0 -HostVersion 1.0.0 -Stdio -LogLevel Normal]]
       local command = command_fmt:format(bundle_path, bundle_path, temp_path, temp_path)
@@ -50,4 +52,30 @@ return {
    end,
   filetypes = { 'ps1', 'psm1' },
   root_markers = { 'PSScriptAnalyzerSettings.psd1', '.git' },
+  settings = {
+      powershell = {
+         scriptAnalysis = {
+            settingsPath = vim.fn.stdpath('config') .. '/resources/PSScriptAnalyzerSettings.psd1',
+         },
+         codeFormatting = {
+            preset = 'Custom',
+            openBraceOnSameLine = false,
+            newLineAfterOpenBrace = true,
+            newLineAfterCloseBrace = true,
+            ignoreOneLineBlock = true,
+            noEmptyLineBefore = false,
+            whitespaceBeforeOpenBrace = true,
+            whitespaceBeforeOpenParen = true,
+            whitespaceAroundOperator = true,
+            whitespaceAfterSeparator = true,
+            whitespaceInsideBrace = true,
+            whitespaceAroundPipe = true,
+            pipelineIndentationStyle = 'IncreaseIndentationForFirstPipeline',
+            alignPropertyValuePairs = true,
+            useCorrectCasing = true,
+            autoCorrectAliases = true,
+            trimWhitespaceAroundPipe = false,
+         },
+      },
+   },
 }
