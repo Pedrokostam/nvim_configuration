@@ -26,12 +26,12 @@ return {
       },
       {
          "<F8>",
-         function() require('dap').step_over() end,
+         function() require('dap').step_into() end,
          desc = "Step Into"
       },
       {
          "<S-F8>",
-         function() require('dap').step_over() end,
+         function() require('dap').step_out() end,
          desc = "Step Out"
       },
       {

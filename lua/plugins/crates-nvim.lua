@@ -32,8 +32,8 @@ return {
          end,
       },
    },
-   keys = {
-
-      { "<leader>tt", "<Cmd> ToggleTerm <CR>", desc = "Toggle Terminal pane" },
-   },
+   -- keys = {
+   --
+   --    { "<leader>tt", "<Cmd> ToggleTerm <CR>", desc = "Toggle Terminal pane" },
+   -- },
 }

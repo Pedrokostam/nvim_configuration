@@ -16,7 +16,7 @@ vim.opt.undofile = true                           -- Persistent undo
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir") -- Undo directory
 vim.opt.updatetime = 300                          -- Faster completion
 vim.opt.timeoutlen = 500                          -- Key timeout duration
-vim.opt.ttimeoutlen = 0                           -- Key code timeout
+vim.opt.ttimeoutlen = 50                           -- Key code timeout (keep non-zero; 0 breaks escape-seq parsing on WSL/ConPTY)
 vim.opt.autoread = true                           -- Auto reload files changed outside vim
 vim.opt.autowrite = false                         -- Don't auto save
 vim.opt.fileformats =
@@ -92,16 +92,7 @@ vim.opt.wildmenu = true                 -- Enable command-line completion menu
 vim.opt.wildmode = "longest:full,full"  -- Completion mode for command-line
 vim.opt.wildignorecase = true           -- Case-insensitive tab completion in commands
 
--- File Handling
-vim.opt.backup = false                       -- Don't create backup files
-vim.opt.writebackup = false                  -- Don't backup before overwriting
-vim.opt.swapfile = false                     -- Don't create swap files
-vim.opt.undofile = true                      -- Persistent undo
-vim.opt.updatetime = 300                     -- Time in ms to trigger CursorHold
-vim.opt.timeoutlen = 500                     -- Time in ms to wait for mapped sequence
-vim.opt.ttimeoutlen = 0                      -- No wait for key code sequences
-vim.opt.autoread = true                      -- Auto-reload file if changed outside
-vim.opt.autowrite = false                    -- Don't auto-save on some events
+-- Diff
 vim.opt.diffopt:append("vertical")           -- Vertical diff splits
 vim.opt.diffopt:append("algorithm:patience") -- Better diff algorithm
 vim.opt.diffopt:append("linematch:60")       -- Better diff highlighting (smart line matching)

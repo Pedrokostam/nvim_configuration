@@ -58,7 +58,6 @@ vim.lsp.enable({
    "csharp_ls",
    "powershell_es",
    "clangd", "cmake",
-   "csharp_ls",
    "jsonls",
    "pyright",
    "ruff",

@@ -35,12 +35,12 @@ return {
     },
   },
    config = function(_, opts)
-      vim.g.rustaceanbim = {
+      vim.g.rustaceanvim = {
          server = {
             on_attach = function(client, bufnr)
-               local success, _ = pcall(vim.lsp.inlay_hint.enable, true)
+               local success, err = pcall(vim.lsp.inlay_hint.enable, true)
                if not success then
-                  vim.lsp.inlay_hint.enable(true)
+                  vim.notify("rustaceanvim: failed to enable inlay hints: " .. tostring(err), vim.log.levels.WARN)
                end
             end,
             default_settings = {

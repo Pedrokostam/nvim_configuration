@@ -4,7 +4,7 @@ return {
    "nvim-treesitter/nvim-treesitter",
    version = false,
    lazy = false,
-   event = "BufRead",
+   -- event = "BufRead",
    branch = "main",
    build = ":TSUpdate",
    ---@class TSConfig

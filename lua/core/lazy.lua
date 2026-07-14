@@ -32,4 +32,11 @@ require("lazy").setup({
   -- install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = false },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "osc52",
+      },
+    },
+  },
 })
