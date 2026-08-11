@@ -1,6 +1,6 @@
 To find out the config folder execute this in Neovim:
 ```
-:echo stdpath("config")
+nvim --headless +'echo stdpath("config")' +q
 ```
 
 To make Rust work you need to install rust-analyzer
