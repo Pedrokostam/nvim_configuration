@@ -6,9 +6,10 @@ return {
    -- or if using mini.icons/mini.nvim
    -- dependencies = { "nvim-mini/mini.icons" },
    opts = {
-      fzf_opts = { ['--cycle'] = true },
+      fzf_opts = { ['--cycle'] = true, ['--exact'] = true },
       oldfiles = { include_current_session = true, },
       previewers = { syntax_limit_b = 1024 * 200, },
+      debounce = 250,
    },
    keys = {
       {
@@ -28,15 +29,15 @@ return {
       { "<leader>fr",   "<cmd>FzfLua oldfiles<cr>",                   desc = "Recent" },
       -- Grep
       { "<leader>fgr",  "<cmd>FzfLua grep resume=true<cr>",           desc = "Resumes previous grep" },
-      { "<leader>fgG",  "<cmd>FzfLua grep_curbuf<cr>",                desc = "Grep current buffer" },
-      { "<leader>fgg",  "<cmd>FzfLua grep_project<cr>",               desc = "Grep files" },
-      { "<leader>fglG", "<cmd>FzfLua lgrep_curbuf<cr>",               desc = "Grep current buffer (live)" },
-      { "<leader>fglg", "<cmd>FzfLua lgrep_project<cr>",              desc = "Grep files (live)" },
+      { "<leader>fgfG", "<cmd>FzfLua grep_curbuf<cr>",                desc = "Grep current buffer" },
+      { "<leader>fgfg", "<cmd>FzfLua grep_project<cr>",               desc = "Grep files" },
+      { "<leader>fgG",  "<cmd>FzfLua live_grep_curbuf<cr>",           desc = "Grep current buffer (live)" },
+      { "<leader>fgg",  "<cmd>FzfLua live_grep<cr>",                  desc = "Grep files (live)" },
       -- DAP
-      { "<S-F4>b",      "<cmd>FzfLua dap_breakpoints<cr>",                desc = "DAP breakpoints" },
-      { "<S-F4>c",      "<cmd>FzfLua dap_commands<cr>",                   desc = "DAP commands" },
-      { "<S-F4>g",      "<cmd>FzfLua dap_configurations<cr>",             desc = "DAP configurations" },
-      { "<S-F4>v",      "<cmd>FzfLua dap_variables<cr>",                  desc = "DAP variables" },
+      { "<S-F4>b",      "<cmd>FzfLua dap_breakpoints<cr>",            desc = "DAP breakpoints" },
+      { "<S-F4>c",      "<cmd>FzfLua dap_commands<cr>",               desc = "DAP commands" },
+      { "<S-F4>g",      "<cmd>FzfLua dap_configurations<cr>",         desc = "DAP configurations" },
+      { "<S-F4>v",      "<cmd>FzfLua dap_variables<cr>",              desc = "DAP variables" },
       -- git
       { "<leader>fvc",  "<cmd>FzfLua git_commits<CR>",                desc = "Commits" },
       { "<leader>fvs",  "<cmd>FzfLua git_status<CR>",                 desc = "Status" },

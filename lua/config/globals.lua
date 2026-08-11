@@ -1,5 +1,7 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+
+vim.keymap.set({ "n", "x", "o" }, "<Space>", "<Leader>", { remap = true, silent = true })
 
 ---@diagnostic disable: undefined-field
 local sys = vim.loop.os_uname().sysname

@@ -82,4 +82,118 @@ vim.api.nvim_create_user_command("Wa", "wall", {})
 vim.api.nvim_create_user_command("W", "write", {})
 vim.api.nvim_create_user_command("WQA", "wqall", {})
 vim.api.nvim_create_user_command("WQa", "wqall", {})
+
+-- Floating window: LSP attach status + live-discovered LSP shortcuts (<C-?>)
+-- Neovim built-in LSP/diagnostic default maps. `verify` confirms the key still
+-- points at its intended function (drops it if you override or delete the default).
+local builtin_lsp_maps = {
+   { modes = { "n" },      lhs = "grn",   desc = "Rename all references",    verify = "vim%.lsp" },
+   { modes = { "n", "x" }, lhs = "gra",   desc = "Code Action",             verify = "vim%.lsp" },
+   { modes = { "n" },      lhs = "grr",   desc = "References",              verify = "vim%.lsp" },
+   { modes = { "n" },      lhs = "gri",   desc = "Implementation",          verify = "vim%.lsp" },
+   { modes = { "n" },      lhs = "grt",   desc = "Type Definition",         verify = "vim%.lsp" },
+   { modes = { "n" },      lhs = "gO",    desc = "Document Symbols",        verify = "vim%.lsp" },
+   { modes = { "i" },      lhs = "<C-s>", desc = "Signature Documentation", verify = "vim%.lsp" },
+   { modes = { "n" },      lhs = "[d",    desc = "Prev Diagnostic",         verify = "[Dd]iagnostic" },
+   { modes = { "n" },      lhs = "]d",    desc = "Next Diagnostic",         verify = "[Dd]iagnostic" },
+}
+
+local function collect_lsp_keymaps()
+   local by_key, out = {}, {}
+   local function add(lhs, desc, mode)
+      local key = lhs .. "\0" .. desc
+      local entry = by_key[key]
+      if not entry then
+         entry = { lhs = lhs, desc = desc, modes = {}, seen = {} }
+         by_key[key] = entry
+         out[#out + 1] = entry
+      end
+      if not entry.seen[mode] then
+         entry.seen[mode] = true
+         entry.modes[#entry.modes + 1] = mode
+      end
+   end
+
+   for _, mode in ipairs({ "n", "i", "v", "x" }) do
+      for _, list in ipairs({ vim.api.nvim_get_keymap(mode), vim.api.nvim_buf_get_keymap(0, mode) }) do
+         for _, m in ipairs(list) do
+            if m.desc and m.desc:match("^LSP:") then
+               add(m.lhs, m.desc:gsub("^LSP:%s*", ""), mode)
+            end
+         end
+      end
+   end
+
+   for _, b in ipairs(builtin_lsp_maps) do
+      for _, mode in ipairs(b.modes) do
+         local info = vim.fn.maparg(b.lhs, mode, false, true)
+         local d = info.desc or info.rhs or ""
+         if next(info) ~= nil and d:match(b.verify) then
+            add(b.lhs, b.desc, mode)
+         end
+      end
+   end
+
+   table.sort(out, function(a, b) return a.desc < b.desc end)
+   return out
+end
+
+local function show_lsp_info()
+   local clients = vim.lsp.get_clients({ bufnr = 0 })
+   local lines
+   if #clients == 0 then
+      lines = { "LSP: none attached to this buffer" }
+   else
+      local names = {}
+      for _, c in ipairs(clients) do names[#names + 1] = c.name end
+      lines = { "LSP attached: " .. table.concat(names, ", ") }
+   end
+   lines[#lines + 1] = ""
+   lines[#lines + 1] = "Shortcuts:"
+
+   local maps = collect_lsp_keymaps()
+   local lhs_w, mode_w = 0, 0
+   for _, m in ipairs(maps) do
+      m.modestr = "[" .. table.concat(m.modes, ",") .. "]"
+      lhs_w = math.max(lhs_w, #m.lhs)
+      mode_w = math.max(mode_w, #m.modestr)
+   end
+   local fmt = "  %-" .. mode_w .. "s  %-" .. lhs_w .. "s   %s"
+   for _, m in ipairs(maps) do
+      lines[#lines + 1] = string.format(fmt, m.modestr, m.lhs, m.desc)
+   end
+
+   local buf = vim.api.nvim_create_buf(false, true)
+   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+   vim.bo[buf].modifiable = false
+   vim.bo[buf].bufhidden = "wipe"
+
+   local width = 0
+   for _, l in ipairs(lines) do width = math.max(width, vim.fn.strdisplaywidth(l)) end
+   local height = #lines
+   vim.api.nvim_open_win(buf, true, {
+      relative = "editor",
+      width = width + 2,
+      height = height,
+      row = math.floor((vim.o.lines - height) / 2),
+      col = math.floor((vim.o.columns - width) / 2),
+      style = "minimal",
+      border = "rounded",
+      title = " LSP Info ",
+      title_pos = "center",
+   })
+   for _, key in ipairs({ "q", "<Esc>" }) do
+      vim.keymap.set("n", key, "<cmd>close<cr>", { buffer = buf, nowait = true, silent = true })
+   end
+end
+
+vim.api.nvim_create_user_command("LspShortcuts", show_lsp_info, {})
+
+local function open_lsp_info()
+   vim.cmd("stopinsert")
+   vim.schedule(show_lsp_info)
+end
+-- g? works everywhere; <C-?> only reaches Neovim in a GUI (terminals collapse it to <BS>)
+vim.keymap.set({ "n", "x" }, "g?", open_lsp_info, { desc = "Show LSP info & shortcuts", silent = true })
+vim.keymap.set({ "n", "i", "v" }, "<C-?>", open_lsp_info, { desc = "Show LSP info & shortcuts", silent = true })
 vim.api.nvim_create_user_command("Wqa", "wqall", {})
