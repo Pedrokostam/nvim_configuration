@@ -31,7 +31,7 @@ return {
       { "<leader>fgr",  "<cmd>FzfLua grep resume=true<cr>",           desc = "Resumes previous grep" },
       { "<leader>fgfG", "<cmd>FzfLua grep_curbuf<cr>",                desc = "Grep current buffer" },
       { "<leader>fgfg", "<cmd>FzfLua grep_project<cr>",               desc = "Grep files" },
-      { "<leader>fgG",  "<cmd>FzfLua live_grep_curbuf<cr>",           desc = "Grep current buffer (live)" },
+      { "<leader>fgG",  "<cmd>FzfLua lgrep_curbuf<cr>",               desc = "Grep current buffer (live)" },
       { "<leader>fgg",  "<cmd>FzfLua live_grep<cr>",                  desc = "Grep files (live)" },
       -- DAP
       { "<S-F4>b",      "<cmd>FzfLua dap_breakpoints<cr>",            desc = "DAP breakpoints" },
