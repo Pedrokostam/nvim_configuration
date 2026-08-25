@@ -56,7 +56,7 @@ vim.keymap.set("i", "<C-z>", "<C-X><C-O>", { desc = "Get completion", noremap = 
 -- The preferred binding
 vim.keymap.set("i", "<C-Space>", "<C-X><C-O>", { desc = "Get completion", noremap = true, silent = true })
 
-vim.keymap.set({ "n", "i", "v" }, "<F12>", function() vim.lsp.buf.definition() end,
+vim.keymap.set({ "n", "i", "v" }, "<F12>", vim.lsp.buf.definition,
    { noremap = true, silent = true, desc = "LSP: Goto Definition" })
 vim.keymap.set({ "n", "i", "v" }, "<C-F12>", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>",
    { desc = "LSP: Goto Definition in Vertical Split" })

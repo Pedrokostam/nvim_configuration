@@ -1,4 +1,15 @@
 vim.loader.enable()
+
+if vim.g.vscode then
+  -- Running inside vscode-neovim: VS Code owns UI, LSP, files, terminal, colors.
+  -- Load only editing behavior, then re-point nvim-specific maps at VS Code commands.
+  require("config.globals")
+  require("config.options")
+  require("config.keymaps")
+  require("config.vscode")
+  return
+end
+
 -- Pre-lazy configuration
 require("config.filetypes")
 require("config.neovide")
@@ -13,4 +24,3 @@ require("core.lazy") -- includes plugins
 require("core.lsp")
 -- Color scheme
 vim.cmd "colorscheme jellybeans"
-
