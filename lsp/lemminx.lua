@@ -8,7 +8,19 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'lemminx' },
-  filetypes = { 'xml', 'xsd', 'xsl', 'xslt', 'svg' },
-  root_markers = { '.git' },
+   cmd = { 'lemminx' },
+   filetypes = { 'xml', 'xsd', 'xsl', 'xslt', 'svg' },
+   root_markers = { '.git' },
+   settings = {
+      xml = {
+         format = {
+            enabled = true,
+            maxLineWidth = 150,       -- Set your preferred line length here
+            splitAttributes = 'preserve', -- 'none' | 'splitNewLine' | 'alignWithFirstAttr' | 'preserve'
+            joinContentLines = false,
+            joinCommentLines = false,
+            joinCDATALines = false,
+         },
+      },
+   },
 }

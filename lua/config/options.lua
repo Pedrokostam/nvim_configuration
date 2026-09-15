@@ -16,16 +16,17 @@ vim.opt.undofile = true                           -- Persistent undo
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir") -- Undo directory
 vim.opt.updatetime = 300                          -- Faster completion
 vim.opt.timeoutlen = 500                          -- Key timeout duration
-vim.opt.ttimeoutlen = 50                           -- Key code timeout (keep non-zero; 0 breaks escape-seq parsing on WSL/ConPTY)
+vim.opt.ttimeoutlen = 50                          -- Key code timeout (keep non-zero; 0 breaks escape-seq parsing on WSL/ConPTY)
 vim.opt.autoread = true                           -- Auto reload files changed outside vim
 vim.opt.autowrite = false                         -- Don't auto save
 vim.opt.fileformats =
 'unix,dos'                                        -- Set the formats Vim will check when opening a file (default behavior)
 
 -- Tabbing / Indentation
-vim.opt.tabstop = 3                -- Tab width
-vim.opt.shiftwidth = 3             -- Indent width
-vim.opt.softtabstop = 3            -- Soft tab stop
+local tablength = 2
+vim.opt.tabstop = tablength        -- Tab width
+vim.opt.shiftwidth = tablength     -- Indent width
+vim.opt.softtabstop = tablength    -- Soft tab stop
 vim.opt.expandtab = true           -- Use spaces instead of tabs
 vim.opt.smartindent = true         -- Smart auto-indenting
 vim.opt.autoindent = true          -- Copy indent from current line
@@ -67,13 +68,13 @@ vim.opt.synmaxcol = 400                              -- Syntax highlighting colu
 vim.opt.winborder = 'rounded'
 
 -- Behavior Settings
-vim.opt.errorbells = false              -- Disable error sounds
-vim.opt.backspace = "indent,eol,start"  -- Make backspace behave naturally
-vim.opt.autochdir = false               -- Don't change directory automatically
-vim.opt.iskeyword:append("-")           -- Treat dash as part of a word
-vim.opt.path:append("**")               -- Search into subfolders with `gf`
-vim.opt.selection = "inclusive"         -- Use inclusive selection
-vim.opt.mouse = "a"                     -- Enable mouse support
+vim.opt.errorbells = false             -- Disable error sounds
+vim.opt.backspace = "indent,eol,start" -- Make backspace behave naturally
+vim.opt.autochdir = false              -- Don't change directory automatically
+vim.opt.iskeyword:append("-")          -- Treat dash as part of a word
+vim.opt.path:append("**")              -- Search into subfolders with `gf`
+vim.opt.selection = "inclusive"        -- Use inclusive selection
+vim.opt.mouse = "a"                    -- Enable mouse support
 -- vim.g.clipboard = {
 --    name = 'OSC 52',
 --    copy = {
@@ -86,11 +87,11 @@ vim.opt.mouse = "a"                     -- Enable mouse support
 --    },
 -- }
 -- vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
-vim.opt.modifiable = true               -- Allow editing buffers
-vim.opt.encoding = "UTF-8"              -- Use UTF-8 encoding
-vim.opt.wildmenu = true                 -- Enable command-line completion menu
-vim.opt.wildmode = "longest:full,full"  -- Completion mode for command-line
-vim.opt.wildignorecase = true           -- Case-insensitive tab completion in commands
+vim.opt.modifiable = true              -- Allow editing buffers
+vim.opt.encoding = "UTF-8"             -- Use UTF-8 encoding
+vim.opt.wildmenu = true                -- Enable command-line completion menu
+vim.opt.wildmode = "longest:full,full" -- Completion mode for command-line
+vim.opt.wildignorecase = true          -- Case-insensitive tab completion in commands
 
 -- Diff
 vim.opt.diffopt:append("vertical")           -- Vertical diff splits
