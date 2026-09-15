@@ -13,6 +13,9 @@ return {
    root_markers = { '.git' },
    settings = {
       xml = {
+         validation = {
+            noGrammar = 'ignore',
+         },
          format = {
             enabled = true,
             maxLineWidth = 150,       -- Set your preferred line length here

@@ -1,6 +1,7 @@
 -- Syntax parsing and colorizing
 -- https://github.com/nvim-treesitter/nvim-treesitter
 return {
+   {
    "nvim-treesitter/nvim-treesitter",
    version = false,
    lazy = false,
@@ -19,6 +20,11 @@ return {
          "go",
          "html",
          "javascript",
+         "typescript",
+         "tsx",
+         "java",
+         "sql",
+         "dockerfile",
          "json",
          "lua",
          "luadoc",
@@ -36,10 +42,18 @@ return {
          "xml",
          "yaml"
       },
-      config = function(_, opts)
+   },
+   config = function(_, opts)
          -- install parsers from custom opts.ensure_installed
          if opts.ensure_installed and #opts.ensure_installed > 0 then
-            require("nvim-treesitter").install(opts.ensure_installed)
+            local installed = {}
+            for _, p in ipairs(require("nvim-treesitter.config").get_installed("parsers")) do
+               installed[p] = true
+            end
+            local missing = vim.tbl_filter(function(p) return not installed[p] end, opts.ensure_installed)
+            if #missing > 0 then
+               require("nvim-treesitter").install(missing)
+            end
             -- register and start parsers for filetypes
             for _, parser in ipairs(opts.ensure_installed) do
                local filetypes = parser -- In this case, parser is the filetype/language name

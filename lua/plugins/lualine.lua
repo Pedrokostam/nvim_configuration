@@ -50,7 +50,29 @@ return {
                      color = { fg = "#ff9e64" },
                   }
                },
-               lualine_x = { 'searchcount', 'selectioncount' },
+               lualine_x = {
+                  'searchcount',
+                  'selectioncount',
+                  {
+                     function()
+                        local names = {}
+                        for _, c in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
+                           names[#names + 1] = c.name
+                        end
+                        return #names > 0 and (" " .. table.concat(names, ",")) or "No LSP"
+                     end,
+                  },
+                  {
+                     function()
+                        local buf = vim.api.nvim_get_current_buf()
+                        if not vim.treesitter.highlighter.active[buf] then
+                           return "No parser"
+                        end
+                        local ok, parser = pcall(vim.treesitter.get_parser, buf)
+                        return ok and parser and ("󱏒 " .. parser:lang()) or "No parser"
+                     end,
+                  },
+               },
                lualine_y = { { 'encoding', show_bomb = true }, 'fileformat', 'filetype' },
                lualine_z = { 'progress', 'location' }
             },
