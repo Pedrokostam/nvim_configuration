@@ -2,6 +2,7 @@ vim.loader.enable()
 
 -- Shared by both plain nvim and vscode-neovim (pure buffer API, no plugins).
 require("config.surround")
+require("config.save_commands")
 
 if vim.g.vscode then
   -- Running inside vscode-neovim: VS Code owns UI, LSP, files, terminal, colors.

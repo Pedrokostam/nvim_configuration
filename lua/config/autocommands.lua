@@ -77,11 +77,6 @@ vim.api.nvim_create_user_command("WriteAndSource", function()
    end
 end, {})
 vim.cmd("cnoreabbrev wso WriteAndSource")
-vim.api.nvim_create_user_command("WA", "wall", {})
-vim.api.nvim_create_user_command("Wa", "wall", {})
-vim.api.nvim_create_user_command("W", "write", {})
-vim.api.nvim_create_user_command("WQA", "wqall", {})
-vim.api.nvim_create_user_command("WQa", "wqall", {})
 
 -- Floating window: LSP attach status + live-discovered LSP shortcuts (<C-?>)
 -- Neovim built-in LSP/diagnostic default maps. `verify` confirms the key still
@@ -198,4 +193,3 @@ end
 -- g? works everywhere; <C-?> only reaches Neovim in a GUI (terminals collapse it to <BS>)
 vim.keymap.set({ "n", "x" }, "g?", open_lsp_info, { desc = "Show LSP info & shortcuts", silent = true })
 vim.keymap.set({ "n", "i", "v" }, "<C-?>", open_lsp_info, { desc = "Show LSP info & shortcuts", silent = true })
-vim.api.nvim_create_user_command("Wqa", "wqall", {})
