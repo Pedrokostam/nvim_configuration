@@ -94,9 +94,9 @@ vim.keymap.set(
    function()
       vim.wo.list = not vim.wo.list
    end,
-   { desc = "Toggle invisble characters" }
+   { desc = "Toggle invisible characters" }
 )
 vim.keymap.set({ "i", "n" }, "<F3>w", function() vim.wo.wrap = not vim.wo.wrap end, { desc = "Toggle wrapping" })
 vim.keymap.set({ "i", "n" }, "<F3>fd", function() vim.bo.fileformat = 'dos' end, { desc = "Set format to DOS (CRLF)" })
-vim.keymap.set({ "i", "n" }, "<F3>fu", function() vim.bo.fileformat = 'unix' end, { desc = "Set format to UNIX (LR)" })
+vim.keymap.set({ "i", "n" }, "<F3>fu", function() vim.bo.fileformat = 'unix' end, { desc = "Set format to UNIX (LF)" })
 vim.keymap.set({ "i", "n" }, "<F3>fm", function() vim.bo.fileformat = 'mac' end, { desc = "Set format to MAC (CR)" })

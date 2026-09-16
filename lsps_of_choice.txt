@@ -1,0 +1,5 @@
+pyright
+ruff
+jsonls
+clangd
+lua_ls (lua_language_server)

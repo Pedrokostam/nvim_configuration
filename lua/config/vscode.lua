@@ -24,9 +24,7 @@ local by_callback = {
    [vim.lsp.buf.code_action]     = "editor.action.quickFix",
    [vim.lsp.buf.rename]          = "editor.action.rename",
    [vim.lsp.buf.format]          = "editor.action.formatDocument",
-   [vim.diagnostic.open_float]   = "editor.action.marker.next",
-   [vim.diagnostic.goto_next]    = "editor.action.marker.next",
-   [vim.diagnostic.goto_prev]    = "editor.action.marker.prev",
+   [vim.diagnostic.open_float]   = "editor.action.showHover",
 }
 
 -- Ordered Lua patterns matched against a lower-cased rhs string. First hit wins,

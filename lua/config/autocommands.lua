@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       -- https://neovim.io/doc/user/news-0.11.html#_defaults
 
       local client = vim.lsp.get_client_by_id(event.data.client_id)
-      if not client or not client:supports_method('textDocument/completion') then
+      if not client then
          return
       end
       local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
@@ -56,7 +56,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
          local win = vim.api.nvim_get_current_win()
          vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
       end
-      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+      if client:supports_method('textDocument/completion') then
+         vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+      end
       -- When LSP detaches: Clears the highlighting
       vim.api.nvim_create_autocmd('LspDetach', {
          group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),

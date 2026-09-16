@@ -1,7 +1,7 @@
 -- Function to toggle LSP for the current buffer
 local function toggle_lsp()
   local bufnr = vim.api.nvim_get_current_buf()
-  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+  local clients = vim.lsp.get_clients({ bufnr = bufnr })
 
   if #clients > 0 then
     -- If there are active clients for the buffer, stop them

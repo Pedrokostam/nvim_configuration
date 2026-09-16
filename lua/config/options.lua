@@ -88,7 +88,6 @@ vim.opt.mouse = "a"                    -- Enable mouse support
 -- }
 -- vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 vim.opt.modifiable = true              -- Allow editing buffers
-vim.opt.encoding = "UTF-8"             -- Use UTF-8 encoding
 vim.opt.wildmenu = true                -- Enable command-line completion menu
 vim.opt.wildmode = "longest:full,full" -- Completion mode for command-line
 vim.opt.wildignorecase = true          -- Case-insensitive tab completion in commands
@@ -111,6 +110,7 @@ vim.opt.guicursor = {
 -- Folding Settings
 vim.opt.foldmethod = "expr"                          -- Use expression for folding
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for folding
+vim.opt.foldtext = ""                                -- Show folded line with real syntax highlighting
 vim.opt.foldlevel = 99                               -- Keep all folds open by default
 
 -- Split Behavior

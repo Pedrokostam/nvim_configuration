@@ -1,5 +1,4 @@
 if vim.g.neovide then
-   vim.o.guifont = "FantasqueSansM Nerd Font Mono:h14"
    vim.g.neovide_cursor_animation_length = 0.120
    vim.opt.background='dark'
    vim.g.neovide_cursor_short_animation_length = 0.95
