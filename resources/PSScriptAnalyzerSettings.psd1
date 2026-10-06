@@ -56,7 +56,7 @@
          Enable              = $true
          Kind                = 'space'
          PipelineIndentation = 'IncreaseIndentationForFirstPipeline'
-         IndentationSize     = 3
+         IndentationSize     = 2
       }
 
       PSUseConsistentWhitespace  = @{
